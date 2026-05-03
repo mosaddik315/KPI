@@ -1,0 +1,21 @@
+{
+  "name": "Aureus Growth",
+  "short_name": "Aureus",
+  "description": "Premium Personal KPI & Growth Tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#D4AF37",
+  "icons": [
+    {
+      "src": "/aureus_growth_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/aureus_growth_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

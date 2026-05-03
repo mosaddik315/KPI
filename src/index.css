@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cinzel", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-gold: #D4AF37;
+  --color-gold-light: #F1D483;
+  --color-charcoal: #121212;
+  --color-slate: #2C2C2C;
+}
+
+@layer base {
+  body {
+    @apply bg-charcoal text-white font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Fibonacci spacing helpers if needed */
+.p-fib-5 { padding: 8px; }
+.p-fib-8 { padding: 13px; }
+.p-fib-13 { padding: 21px; }
+
+.glass {
+  @apply backdrop-blur-md bg-white/5 border border-white/10;
+}

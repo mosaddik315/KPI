@@ -1,0 +1,12 @@
+{
+  "name": "Aureus Growth",
+  "description": "A high-end Personal KPI & Growth Tracker built with mathematical precision, featuring hierarchical tracking, deep work timers, and SWOT analysis.",
+  "requestFramePermissions": [
+    "notifications"
+  ],
+  "majorCapabilities": [
+    "Firebase Authentication",
+    "Firestore Synchronization",
+    "Progressive Web App (PWA)"
+  ]
+}

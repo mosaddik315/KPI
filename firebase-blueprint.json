@@ -1,0 +1,122 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile information and settings.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "createdAt"]
+    },
+    "KPI": {
+      "title": "Key Performance Indicator",
+      "description": "Tracks goals across different timeframes.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string", "enum": ["today", "week", "month", "year"] },
+        "targetValue": { "type": "number" },
+        "currentValue": { "type": "number" },
+        "unit": { "type": "string" },
+        "category": { "type": "string" },
+        "deadline": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "type", "targetValue", "currentValue", "createdAt"]
+    },
+    "TimeLog": {
+      "title": "Time Utilization Log",
+      "description": "Real-time tracker for active and idle tasks.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "taskName": { "type": "string" },
+        "startTime": { "type": "string", "format": "date-time" },
+        "endTime": { "type": "string", "format": "date-time" },
+        "duration": { "type": "number", "description": "Duration in minutes" },
+        "type": { "type": "string", "enum": ["active", "idle"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "taskName", "startTime", "type", "createdAt"]
+    },
+    "Book": {
+      "title": "Growth: Book Tracker",
+      "description": "Tracks reading progress of personal growth books.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "totalPages": { "type": "number" },
+        "pagesRead": { "type": "number" },
+        "category": { "type": "string" },
+        "status": { "type": "string", "enum": ["reading", "completed", "wishlist"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "totalPages", "pagesRead", "status", "createdAt"]
+    },
+    "Skill": {
+      "title": "Growth: Skill Mastery",
+      "description": "Tracks hours spent mastering specific skills.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "targetHours": { "type": "number" },
+        "currentHours": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "name", "targetHours", "currentHours", "createdAt"]
+    },
+    "SWOT": {
+      "title": "Premium: SWOT Analysis",
+      "description": "Self-reflection tool for quarterly analysis.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "type": { "type": "string", "enum": ["strength", "weakness", "opportunity", "threat"] },
+        "content": { "type": "string" },
+        "quarter": { "type": "number" },
+        "year": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "type", "content", "quarter", "year", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Public and private user profiles."
+    },
+    "kpis/{kpiId}": {
+      "schema": "KPI",
+      "description": "Individual performance indicators."
+    },
+    "time_logs/{logId}": {
+      "schema": "TimeLog",
+      "description": "Tracking daily time utilization."
+    },
+    "books/{bookId}": {
+      "schema": "Book",
+      "description": "Personal library and reading progress."
+    },
+    "skills/{skillId}": {
+      "schema": "Skill",
+      "description": "Skill development mastery tracker."
+    },
+    "swots/{swotId}": {
+      "schema": "SWOT",
+      "description": "Quarterly SWOT analysis records."
+    }
+  }
+}
